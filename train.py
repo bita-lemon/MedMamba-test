@@ -24,7 +24,7 @@ def main():
                                    transforms.ToTensor(),
                                    transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])}
 
-    train_dataset = datasets.ImageFolder(root="the path of your train set",
+    train_dataset = datasets.ImageFolder(root="/kaggle/input/cpn-xray-dataset/train",
                                          transform=data_transform["train"])
     train_num = len(train_dataset)
 
@@ -43,7 +43,7 @@ def main():
                                                batch_size=batch_size, shuffle=True,
                                                num_workers=nw)
 
-    validate_dataset = datasets.ImageFolder(root="the path of your validation set",,
+    validate_dataset = datasets.ImageFolder(root="/kaggle/input/cpn-xray-dataset/val",
                                             transform=data_transform["val"])
     val_num = len(validate_dataset)
     validate_loader = torch.utils.data.DataLoader(validate_dataset,
@@ -53,7 +53,7 @@ def main():
                                                                            val_num))
 
 
-    net = medmamba(num_classes=num_classes)
+    net = medmamba(num_classes=3)
     net.to(device)
     loss_function = nn.CrossEntropyLoss()
     optimizer = optim.Adam(net.parameters(), lr=0.0001)
