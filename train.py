@@ -28,7 +28,7 @@ def main():
                                    transforms.ToTensor(),
                                    transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])}
 
-    train_dataset = datasets.ImageFolder(root="/kaggle/input/cpn-xray-dataset/train",
+    train_dataset = datasets.ImageFolder(root="/kaggle/input/cpn-xray-dataset/CPN_Xray/train",
                                          transform=data_transform["train"])
     train_num = len(train_dataset)
 
@@ -47,7 +47,7 @@ def main():
                                                batch_size=batch_size, shuffle=True,
                                                num_workers=nw)
 
-    validate_dataset = datasets.ImageFolder(root="/kaggle/input/cpn-xray-dataset/val",
+    validate_dataset = datasets.ImageFolder(root="/kaggle/input/cpn-xray-dataset/CPN_Xray/val",
                                             transform=data_transform["val"])
     val_num = len(validate_dataset)
     validate_loader = torch.utils.data.DataLoader(validate_dataset,
