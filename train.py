@@ -60,7 +60,7 @@ def main():
 
     epochs = 100
     best_acc = 0.0
-    save_path = './{}Net.pth'.format(model_name)
+    save_path = './{}Net.pth'.format("MedMamba")
     train_steps = len(train_loader)
     for epoch in range(epochs):
         # train
