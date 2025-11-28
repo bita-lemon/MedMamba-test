@@ -8,10 +8,11 @@ from torchvision import transforms, datasets
 import torch.optim as optim
 from tqdm import tqdm
 
+
 import sys
 sys.path.append("/kaggle/working/MedMamba-test/ConfusionMatrix")
 from MedMamba import VSSM as medmamba
-from Medmamba import VSSM as medmamba # import model
+
 
 
 def main():
