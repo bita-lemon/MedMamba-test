@@ -11,8 +11,8 @@ from einops import rearrange, repeat
 from timm.models.layers import DropPath, to_2tuple, trunc_normal_
 try:
     from mamba_ssm.ops.selective_scan_interface import selective_scan_fn, selective_scan_ref
-except:
-    pass
+except ImportError:
+    raise ImportError("❌ selective_scan_fn not found. Make sure mamba-ssm is installed in the active environment.")
 
 # an alternative for mamba_ssm (in which causal_conv1d is needed)
 try:
