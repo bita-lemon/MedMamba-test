@@ -10,7 +10,7 @@ from tqdm import tqdm
 
 
 import sys
-sys.path.append("/kaggle/working/MedMamba-test/ConfusionMatrix")
+sys.path.append("/kaggle/working/MedMamba-test")
 from MedMamba import VSSM as medmamba
 
 
