@@ -110,7 +110,7 @@ def main():
     net.to(device)
 
     # Load pretrained weights
-    model_weight_path = "/kaggle/working/MedMambaNet.pth"
+    model_weight_path = "/kaggle/input/medmamba1/MedMambaNet.pth"
     assert os.path.exists(model_weight_path), f"Cannot find {model_weight_path}"
     net.load_state_dict(torch.load(model_weight_path, map_location=device))
 
