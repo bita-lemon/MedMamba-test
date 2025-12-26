@@ -62,7 +62,7 @@ def main():
     loss_function = nn.CrossEntropyLoss()
     optimizer = optim.Adam(net.parameters(), lr=0.0001)
 
-    epochs = 50
+    epochs = 10
     
     best_acc = 0.0
     save_path = './{}Net.pth'.format("MedMamba")
