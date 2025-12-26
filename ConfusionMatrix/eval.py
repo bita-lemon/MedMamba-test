@@ -11,7 +11,7 @@ from prettytable import PrettyTable
 from torchvision import transforms, datasets
 
 # مسیر ماژول MedMamba
-sys.path.append("/kaggle/working/MedMamba-test/ConfusionMatrix")
+sys.path.append("/kaggle/working/MedMamba-test")
 from MedMamba import VSSM as medmamba
 
 
