@@ -63,10 +63,11 @@ class ConfusionMatrix:
             for y in range(self.num_classes):
                 value = int(self.matrix[y, x])
                 plt.text(x, y, value,
-                         ha='center', va='center',
-                         color="white" if value > thresh else "black")
+                        ha='center', va='center',
+                        color="white" if value > thresh else "black")
         plt.tight_layout()
-        plt.show()
+        plt.savefig("confusion_matrix.png")  # ذخیره به فایل
+        plt.close()
 
 
 def main():
