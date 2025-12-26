@@ -96,7 +96,7 @@ def main():
 
     # Validation dataset
     validate_dataset = datasets.ImageFolder(
-        root="/kaggle/input/cpn-xray-dataset/CPN_Xray/val",
+        root="/kaggle/input/cpn-xray-dataset/CPN_Xray/test",
         transform=data_transform["val"])
     val_num = len(validate_dataset)
     validate_loader = torch.utils.data.DataLoader(validate_dataset,
