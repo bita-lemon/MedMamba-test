@@ -58,7 +58,11 @@ def main():
 
 
     net = medmamba(num_classes=3)
-    net.to(device)
+    # بررسی تعداد GPUها
+    if torch.cuda.device_count() > 1:
+        print(f"🎯 Using {torch.cuda.device_count()} GPUs!")
+        net = nn.DataParallel(net)
+        net.to(device)
     loss_function = nn.CrossEntropyLoss()
     optimizer = optim.Adam(net.parameters(), lr=0.0001)
 
@@ -104,7 +108,11 @@ def main():
 
         if val_accurate > best_acc:
             best_acc = val_accurate
-            torch.save(net.state_dict(), save_path)
+                        # اگر DataParallel است، مدل اصلی را ذخیره کن
+            if isinstance(net, nn.DataParallel):
+                torch.save(net.module.state_dict(), save_path)
+            else:
+                torch.save(net.state_dict(), save_path)
 
     print('Finished Training')
 
